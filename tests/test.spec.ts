@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.waitForLoadState("domcontentloaded");
 });
 
-test('has title', async ({homePage, searchResultsPage}) => {
+test('has title', async ({homePage, searchResultsPage, cartPage}) => {
   
   const valueToSearch = "instax mini";
   expect (await homePage.inHomePage()).toBe(true);
@@ -15,4 +15,7 @@ test('has title', async ({homePage, searchResultsPage}) => {
   await searchResultsPage.goToSecondPageOfResults();
   await searchResultsPage.verifyUserIsInTheSecondPage();
   await searchResultsPage.addSecondItemDisplayedToCart();
+  await searchResultsPage.goToCartPage()
+  expect (await cartPage.inCartPage()).toBe(true);
+  await cartPage.verifyThereIsOneItemAdded();
 });
