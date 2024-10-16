@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'www.aliexpress.com',
+    baseURL: 'https://aliexpress.com',
     trace: 'on-first-retry',
   },
 
