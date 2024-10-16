@@ -1,8 +1,10 @@
 {
   "name": "modak-challenge",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "playwright:headed": "npx playwright test --headed",
+    "playwright:headless": "npx playwright test"
+  },
   "keywords": [],
   "author": "Juan Gularte",
   "license": "ISC",

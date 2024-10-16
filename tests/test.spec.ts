@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.waitForLoadState("domcontentloaded");
 });
 
-test('has title', async ({homePage, searchResultsPage, cartPage}) => {
+test('Verify the second item from the second results page has at least 1 item to be bought', async ({homePage, searchResultsPage, cartPage}) => {
   
   const valueToSearch = "instax mini";
   expect (await homePage.inHomePage()).toBe(true);
