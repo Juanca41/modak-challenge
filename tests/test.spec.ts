@@ -1,10 +1,13 @@
-import { test, expect } from '@playwright/test';
-import HomePage from '../pages/HomePage';
+import {expect } from '@playwright/test';
+import { test } from "../fixtures/base"
 
-test('has title', async ({ page }) => {
+test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
+});
 
-  const homePage = new HomePage(page);
+test('has title', async ({homePage}) => {
+  
+  const valueToSearch = "instax mini";
   expect (await homePage.inHomePage()).toBe(true);
 });

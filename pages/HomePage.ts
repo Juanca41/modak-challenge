@@ -15,9 +15,23 @@ export default class HomePage{
     searchButton = () => this.page.locator(".search--submit--2VTbd-T");
 
     async inHomePage(){
+        expect(await this.page.title()).toContain(this.baseTitle);
         await this.closeNotificationsAlert().click();
         await expect(this.titleLogo()).toBeVisible();
         return true;
     }
 
+    async fillSearchField(value:string){
+        await this.searchField().fill(value);
+        await expect(this.searchField()).toHaveValue(value)
+    }
+
+    async clickSearchButton(){
+        await this.searchButton().click();
+    }
+
+    async search(value:string){
+        await this.fillSearchField(value);
+        await this.clickSearchButton();
+    }
 }
